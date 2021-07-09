@@ -12,9 +12,16 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+   <ion-toggle (click)="cambiar()" id="toggle"  disabled="false" color="danger"></ion-toggle>
+    <ion-item *ngFor="let partido of partidos">
+    <ion-label>{{partido.equipoCasa}}</ion-label>
+    <ion-label>{{partido.marcador["equipo1"]}}  -  {{partido.marcador["equipo2"]}}</ion-label>
+    <ion-label>{{partido.equipoVisitante}}</ion-label>
+    <ion-label >{{partido.estado}}</ion-label>
+   </ion-item>
   </div>
 </ion-content>

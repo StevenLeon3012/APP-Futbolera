@@ -1,0 +1,20 @@
+ion-content{
+    --ion-background-color: -webkit-linear-gradient(to bottom, #91bba2, #b8cab8);
+    --ion-background-color: linear-gradient(to bottom, #91bba2, #b8cab8);
+}
+.equipoLogo{
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
+.marcador{
+  font-size: 40px;
+  text-align: center;
+}
+.textoEstado{
+  font-size: 15px;
+  text-align: center;
+}
+.cardEvento{
+  font-size: 18px;
+}

@@ -1,7 +1,15 @@
-
-
 ion-content{
   --ion-background-color: -webkit-linear-gradient(to bottom, #91bba2, #b8cab8);
   --ion-background-color: linear-gradient(to bottom, #91bba2, #b8cab8);
 }
-
+#container{
+  --ion-background-color: #fff;
+  min-width: 375px;
+}
+#container ion-card-title, #titulo-pagina{
+  text-align: center;
+}
+p {
+  font-size: 17px;
+  text-align: center;
+}

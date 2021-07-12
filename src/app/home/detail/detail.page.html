@@ -3,6 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,9 +21,11 @@
           </ion-avatar>
           <h5>{{ partido.equipoCasa }}</h5>
         </ion-col>
-        <ion-col size="4">
+        <ion-col size="4" class="marcador">
           <h1 class="marcador">{{partido.marcador['equipo1']}}  :  {{partido.marcador['equipo2']}}</h1>
           <p class="textoEstado">{{ partido.estado }}</p>
+          <ion-toggle (click)="cambiar()" id="toggle"  disabled="false" color="danger"></ion-toggle>
+          <p id="finalizar">Finalizar</p>
         </ion-col>
         <ion-col size="4">
           <ion-avatar class="equipoLogo">

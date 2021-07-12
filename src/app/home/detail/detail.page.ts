@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Partido } from '../home.model';
 import { PartidoServiceService } from '../partido-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +13,9 @@ export class DetailPage implements OnInit {
   partido: Partido;
   constructor(
     private activatedRoutes: ActivatedRoute,
-    private partidoServicio: PartidoServiceService
+    private partidoServicio: PartidoServiceService,
+    private alertCtrl: AlertController,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,4 +30,46 @@ export class DetailPage implements OnInit {
     );
   }
 
+  cambiar(){
+    document.getElementById('toggle').setAttribute('disabled' , 'true');
+    this.partido.estado = 'Finalizado';
+  }
+  delete(){
+    if(this.partido.estado === 'Finalizado'){
+      this.alertCtrl.create({
+        header: "Borrar",
+        message: "Esta seguro que desea borrar este producto?",
+        buttons:[
+          {
+            text: "Cancelar",
+            role: 'cancel'
+          },
+          {
+            text: 'Borrar',
+            handler: () => {
+              this.partidoServicio.deletePartido(this.partido.id);
+              this.router.navigate(['/home']);
+            }
+          }
+        ]
+      }).then(
+        alertElement => {
+          alertElement.present();
+        }
+      );
+    }else{
+      this.alertCtrl.create({
+        header: 'Alerta',
+        message: 'No se puede eliminar un partido en curso',
+        buttons:[{
+          text: 'Aceptar',
+          role: 'cancel'
+        }]
+      }).then(
+        alertElement => {
+          alertElement.present();
+        }
+      );
+    }
+  }
 }

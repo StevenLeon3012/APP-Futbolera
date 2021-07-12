@@ -67,4 +67,9 @@ export class PartidoServiceService {
          return ID === partido.id }
       )};
   }
+  deletePartido(pID: string){
+    this.partidos = this.partidos.filter(
+      partido =>  partido.id !== pID
+    );
+  }
 }

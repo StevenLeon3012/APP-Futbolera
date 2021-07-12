@@ -14,4 +14,7 @@ export class HomePage implements OnInit {
   ngOnInit(){
     this.partidos = this.homeService.getAll();
   }
+  ionViewWillEnter(){
+    this.partidos =  this.homeService.getAll();
+  }
 }

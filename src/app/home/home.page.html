@@ -1,19 +1,43 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="success">
+    <ion-title id="titulo-pagina">
+      <u>Lista de Partidos
+        <ion-icon name="football-outline" slot="icon-only"></ion-icon>
+      </u>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-
+<ion-content [fullscreen]="true" >
+  <div id="container" *ngFor ="let partido of partidos">
+    <ion-card>
+      <ion-card-header>
+         <ion-card-title>{{partido.equipoCasa}} <strong>VS</strong> {{partido.equipoVisitante}} </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-avatar>
+                  <ion-img  src="{{partido.logoEquipoCasa}}"></ion-img>
+                </ion-avatar>
+            </ion-col>
+            <ion-col >
+              <ion-avatar  style="margin-left: 70px;">
+                <ion-img src="{{partido.logoEquipoVisitante}}"></ion-img>
+              </ion-avatar>
+            </ion-col>
+          </ion-row>
+          <ion-row style="margin-top: 10px">
+            <ion-col>
+             <p>Estado: {{partido.estado}} </p>
+            </ion-col>
+            <ion-col style="text-align: right;">
+              <ion-button color=success [routerLink] = "['./', partido.id]">Detalle</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

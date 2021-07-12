@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Partido } from './home.model';
+import { PartidoServiceService } from './partido-service.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  partidos: Partido[];
+  constructor(private homeService: PartidoServiceService) {}
 
-  constructor() {}
-
+  ngOnInit(){
+    this.partidos = this.homeService.getAll();
+  }
 }

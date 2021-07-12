@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item color="success">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-avatar class="equipoLogo">
+            <ion-img [src]="partido.logoEquipoCasa"></ion-img>
+          </ion-avatar>
+          <h5>{{ partido.equipoCasa }}</h5>
+        </ion-col>
+        <ion-col size="4" class="marcador">
+          <h1 class="marcador">{{partido.marcador['equipo1']}}  :  {{partido.marcador['equipo2']}}</h1>
+          <p class="textoEstado">{{ partido.estado }}</p>
+          <ion-toggle (click)="cambiar()" id="toggle"  disabled="false" color="danger"></ion-toggle>
+          <p id="finalizar">Finalizar</p>
+        </ion-col>
+        <ion-col size="4">
+          <ion-avatar class="equipoLogo">
+            <ion-img [src]="partido.logoEquipoVisitante"></ion-img>
+          </ion-avatar>
+          <h5>{{ partido.equipoVisitante }}</h5>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Eventos del partido: </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let evento of partido.eventos" color="light" class="cardEvento">
+            {{evento}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

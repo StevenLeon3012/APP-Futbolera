@@ -8,34 +8,50 @@ export class PartidoServiceService {
 
   private partidos: Partido[] = [
     {
-      id: "1",
-      equipoCasa: "Paris",
-      equipoVisitante: "Real Madrid",
+      id: '1',
+      equipoCasa: 'Paris Saint-Germain',
+      equipoVisitante: 'Real Madrid',
       marcador: {'equipo1' : 1, 'equipo2': 4},
-      logoEquipoCasa: "assets/Images/Paris_img.png",
-      logoEquipoVisitante: "assets/Images/Real_Madrid_img.png",
-      eventos: ["Inicio el partido"],
-      estado: "En curso"
+      logoEquipoCasa: 'assets/Images/Paris_img.png',
+      logoEquipoVisitante: 'assets/Images/Real_Madrid_img.png',
+      eventos: ['Inicio el partido',
+                'Goool! de Paris Saint-Germain',
+                'Amarilla! para Neymar',
+                'Goool! de Real Madrid',
+                'Goool! de Real Madrid',
+                'Goool! de Real Madrid'
+                ],
+      estado: 'En curso'
     },
     {
-      id: "2",
-      equipoCasa: "Liga",
-      equipoVisitante: "Saprissa",
+      id: '2',
+      equipoCasa: 'Liga Deportiva Alajuelense',
+      equipoVisitante: 'Deportivo Saprissa',
       marcador: {'equipo1' : 5, 'equipo2': 4},
-      logoEquipoCasa: "assets/Images/Liga_img.png",
-      logoEquipoVisitante: "assets/Images/Saprissa_img.png",
-      eventos: ["Inicio el partido"],
-      estado: "En curso"
+      logoEquipoCasa: 'assets/Images/Liga_img.png',
+      logoEquipoVisitante: 'assets/Images/Saprissa_img.png',
+      eventos: ['Inicio el partido',
+                'Goool! de Liga Deportiva Alajuelense',
+                'Goool! de Liga Deportiva Alajuelense',
+                'Goool! de Deportivo Saprissa',
+                'Goool! de Liga Deportiva Alajuelense',
+                'Goool! de Deportivo Saprissa',
+                'Goool! de Liga Deportiva Alajuelense',
+                'Goool! de Liga Deportiva Alajuelense',
+                'Goool! de Deportivo Saprissa',
+                'Goool! de Deportivo Saprissa'
+                ],
+      estado: 'En curso'
     },
     {
-      id: "3",
-      equipoCasa: "Bayer",
-      equipoVisitante: "Borussia",
+      id: '3',
+      equipoCasa: 'Bayern Munich',
+      equipoVisitante: 'Borussia Dortmund',
       marcador: {'equipo1' : 0, 'equipo2': 0},
-      logoEquipoCasa: "assets/Images/Bayer_img.png",
-      logoEquipoVisitante: "assets/Images/Borussia_Dortmund_img.png",
-      eventos: ["Inicio el partido"],
-      estado: "En curso"
+      logoEquipoCasa: 'assets/Images/Bayer_img.png',
+      logoEquipoVisitante: 'assets/Images/Borussia_Dortmund_img.png',
+      eventos: ['Inicio el partido'],
+      estado: 'En curso'
     }
   ];
 
@@ -47,8 +63,13 @@ export class PartidoServiceService {
 //Agarrar un soo partido por id
   getPartido(ID: string){
     return {...this.partidos.find(
-      (partido) => {
+        partido => {
          return ID === partido.id }
       )};
+  }
+  deletePartido(pID: string){
+    this.partidos = this.partidos.filter(
+      partido =>  partido.id !== pID
+    );
   }
 }

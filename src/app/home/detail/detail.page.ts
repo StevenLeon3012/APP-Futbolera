@@ -38,7 +38,7 @@ export class DetailPage implements OnInit {
     if(this.partido.estado === 'Finalizado'){
       this.alertCtrl.create({
         header: "Borrar",
-        message: "Esta seguro que desea borrar este producto?",
+        message: "Esta seguro que desea borrar este partido?",
         buttons:[
           {
             text: "Cancelar",

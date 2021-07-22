@@ -4,7 +4,6 @@ ion-content{
 }
 #container{
   --ion-background-color: #fff;
-  min-width: 360px;
 }
 #container ion-card-title, #titulo-pagina{
   text-align: center;
@@ -12,4 +11,13 @@ ion-content{
 p {
   font-size: 17px;
   text-align: center;
+}
+@media screen and (max-width:320px) {
+  ion-button{
+    width:65px;
+    font-size: 15px;
+  }
+  #titulo-pagina{
+    font-size: 15px;
+  }
 }

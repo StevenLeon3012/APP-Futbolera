@@ -17,22 +17,22 @@
       <ion-card-content>
         <ion-grid>
           <ion-row>
-            <ion-col>
+            <ion-col offset="2" size="2">
                 <ion-avatar>
                   <ion-img  src="{{partido.logoEquipoCasa}}"></ion-img>
                 </ion-avatar>
             </ion-col>
-            <ion-col >
-              <ion-avatar  style="margin-left: 70px;">
+            <ion-col offset="4" size="4">
+              <ion-avatar>
                 <ion-img src="{{partido.logoEquipoVisitante}}"></ion-img>
               </ion-avatar>
             </ion-col>
           </ion-row>
           <ion-row style="margin-top: 10px">
-            <ion-col>
+            <ion-col xs="4" size="6">
              <p>Estado: {{partido.estado}} </p>
             </ion-col>
-            <ion-col style="text-align: right;">
+            <ion-col offset="1">
               <ion-button color=success [routerLink] = "['./', partido.id]">Detalle</ion-button>
             </ion-col>
           </ion-row>
